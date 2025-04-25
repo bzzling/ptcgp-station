@@ -20,7 +20,7 @@ const config: Config = {
                 },
                 secondary: '#942941',
                 highlight: {
-                    DEFAULT: '#DEE6EE',
+                    DEFAULT: '#F0F8FF',
                     dark: '#313131',
                 },
                 border: {

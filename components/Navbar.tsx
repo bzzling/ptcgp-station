@@ -5,7 +5,6 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { CircleUser } from "lucide-react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 export default function Navbar() {
@@ -40,13 +39,13 @@ export default function Navbar() {
                             variant={pathname === "/cards" ? "secondary" : "ghost"}
                             asChild
                         >
-                            <Link href="/cards">Cards</Link>
+                            <Link href="/cards" className="!font-bold">Cards</Link>
                         </Button>
                         <Button
                             variant={pathname === "/decks" ? "secondary" : "ghost"}
                             asChild
                         >
-                            <Link href="/decks">Decks</Link>
+                            <Link href="/decks" className="!font-bold">Decks</Link>
                         </Button>
                     </div>
                 </div>

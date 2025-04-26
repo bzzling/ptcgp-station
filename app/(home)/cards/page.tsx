@@ -83,7 +83,7 @@ export default function Cards() {
                     placeholder="Search by Name, ID, Set, Type"
                 />
                 <div className="flex items-center gap-2">
-                    <span className="text-sm text-primary dark:text-primary">Sort By:</span>
+                    <span className="text-sm font-bold text-primary dark:text-primary">Sort By:</span>
                     <select
                         value={sortBy}
                         onChange={handleSortChange}

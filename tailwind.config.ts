@@ -28,9 +28,6 @@ const config: Config = {
                     dark: 'rgba(255, 255, 255, 0.1)',
                 },
             },
-            fontFamily: {
-                sans: ['Helvetica Neue', 'Helvetica', 'Arial', 'sans-serif'],
-            },
         },
     },
     plugins: [],

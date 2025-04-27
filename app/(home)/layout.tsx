@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import Footer from "@/components/Footer"
 import Navbar from "@/components/Navbar"
-import { Open_Sans, Roboto_Mono } from "next/font/google";
+import { Inter, Open_Sans, Roboto_Mono } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "@/app/globals.css";
 
-const openSans = Open_Sans({
-  variable: "--font-open-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
   weight: ["300", "400", "500", "700"],
 });
@@ -14,6 +14,7 @@ const openSans = Open_Sans({
 const robotoMono = Roboto_Mono({
   variable: "--font-roboto-mono",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "700"],
 });
 
 export const metadata: Metadata = {
@@ -32,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${openSans.variable} ${robotoMono.variable} font-sans antialiased`}
+        className={`${inter.variable} ${robotoMono.variable} font-sans antialiased`}
       >
         <ThemeProvider
           attribute="class"

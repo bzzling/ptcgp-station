@@ -14,7 +14,7 @@ export default function SearchBar({ value, onChange, placeholder }: SearchBarPro
                 type="text"
                 value={value}
                 onChange={onChange}
-                className="block w-full pr-10 pl-3 py-2 border border-input rounded-md leading-5 bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-ring/50 focus:border-ring transition-colors sm:text-sm group-focus-within:border-primary"
+                className="block w-full pr-10 pl-3 py-1.5 border border-input rounded-sm leading-5 bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-ring/50 focus:border-ring transition-colors sm:text-sm group-focus-within:border-primary"
                 placeholder={placeholder}
             />
             <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">

@@ -72,8 +72,8 @@ export default function Cards() {
     const displayedCards = cards.slice(startIndex, startIndex + CARDS_PER_PAGE);
 
     return (
-        <div className="container mx-auto px-4 py-8">
-            <div className="flex justify-between items-center mb-6">
+        <div className="container mx-auto px-1 py-4">
+            <div className="flex justify-between items-center mb-4">
                 <SearchBar 
                     value={searchQuery}
                     onChange={(e) => {
@@ -83,11 +83,11 @@ export default function Cards() {
                     placeholder="Search by Name, ID, Set, Type"
                 />
                 <div className="flex items-center gap-2">
-                    <span className="text-sm font-bold text-primary dark:text-primary">Sort By:</span>
+                    <span className="text-sm font-medium text-primary">Sort By:</span>
                     <select
                         value={sortBy}
                         onChange={handleSortChange}
-                        className="text-sm border border-input rounded-md px-3 py-2 bg-background text-foreground focus:outline-none focus:ring-ring/50 focus:border-ring transition-colors"
+                        className="text-sm border border-input rounded-sm px-2 py-1.5 bg-background text-foreground focus:outline-none focus:ring-ring/50 focus:border-ring transition-colors"
                     >
                         <option value="Default">Default</option>
                         <option value="name">Name</option>
@@ -118,7 +118,7 @@ export default function Cards() {
                             >
                                 <ChevronLeft className="h-4 w-4" />
                             </Button>
-                            <span className="text-sm">
+                            <span className="text-sm font-light">
                                 Page {currentPage} of {totalPages}
                             </span>
                             <Button

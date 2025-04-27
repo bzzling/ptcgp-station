@@ -11,8 +11,8 @@ export default function Navbar() {
     const pathname = usePathname();
 
     return (
-        <header className="sticky top-0 z-50 bg-background dark:bg-background-dark border-b border-border dark:border-border-dark">
-            <nav className="max-w-7xl mx-auto flex items-center justify-between p-4">
+        <header className="sticky top-0 z-50 bg-background border-b border-border py-2">
+            <nav className="max-w-7xl mx-auto flex items-center justify-between">
                 <div className="flex items-center gap-6">
                     <div className="flex-shrink-0">
                         <Link href="/">
@@ -25,7 +25,7 @@ export default function Navbar() {
                                     className="object-contain hidden dark:block"
                                 />
                                 <Image 
-                                    src={"/ptcgpstation-title.png"}
+                                    src={"/ptcgpstation-title-light.png"}
                                     alt="PTCGP Station Logo"
                                     fill
                                     priority
@@ -34,18 +34,18 @@ export default function Navbar() {
                             </div>
                         </Link>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-6">
                         <Button
                             variant={pathname === "/cards" ? "secondary" : "ghost"}
                             asChild
                         >
-                            <Link href="/cards" className="!font-bold">Cards</Link>
+                            <Link href="/cards">Cards</Link>
                         </Button>
                         <Button
                             variant={pathname === "/decks" ? "secondary" : "ghost"}
                             asChild
                         >
-                            <Link href="/decks" className="!font-bold">Decks</Link>
+                            <Link href="/decks">Decks</Link>
                         </Button>
                     </div>
                 </div>

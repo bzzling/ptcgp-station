@@ -5,6 +5,7 @@ import {
     DialogHeader,
     DialogTitle,
 } from "@/components/ui/dialog"
+import { type } from 'os'
 
 interface CardDetailPopupProps {
     isOpen: boolean
@@ -20,7 +21,7 @@ interface CardDetailPopupProps {
             name: string
             damage?: number
             description?: string
-            energyType?: string
+            cost?: string[]
         }>
         evolveFrom?: string
         description?: string
@@ -58,10 +59,20 @@ export default function CardDetailPopup({ isOpen, onOpenChange, card, isLoading 
                     <div className="w-3/5">
                         <DialogHeader>
                             <DialogTitle className="text-lg">
-                                {card.number} · {card.name}
+                                <div className="flex items-center justify-between">
+                                    <p>{card.number} · {card.name}</p>
+                                    <div className="w-6 h-6 relative">
+                                        <Image
+                                            src={`/tcg-types/${card.type}.png`}
+                                            alt={card.type ?? ''}
+                                            fill
+                                            className="object-contain"
+                                        />
+                                    </div>
+                                </div>
                             </DialogTitle>
                             {card.evolveFrom && (
-                                <p className="text-sm text-muted-foreground">Evolves from: {card.evolveFrom}</p>
+                                <p className="text-sm">Evolves from: {card.evolveFrom}</p>
                             )}
                         </DialogHeader>
 
@@ -72,16 +83,33 @@ export default function CardDetailPopup({ isOpen, onOpenChange, card, isLoading 
                         ) : (
                             <>
                                 {card.attacks && card.attacks.length > 0 && (
-                                    <div className="mt-4">
-                                        <h3 className="text-sm font-semibold mb-3">Attacks</h3>
-                                        <div className="flex flex-col gap-2 bg-muted p-2 rounded-sm">
+                                    <div className="text-xs mt-4">
+                                        <h3 className="mb-3">Attacks</h3>
+                                        <div className="flex flex-col gap-4 bg-muted p-2 rounded-sm">
                                             {card.attacks.map((attack, index) => (
-                                                <div key={index} className="flex-row justify-between">
-                                                    <div className="flex items-center justify-between mb-2">
-                                                        <p className="font-medium">{attack.name}</p>
+                                                <div key={index} className="flex flex-col gap-1">
+                                                    <div className="relative flex items-center justify-between min-h-[1.5rem]">
+                                                        <div className="flex items-center gap-1 z-10">
+                                                            {attack.cost?.map((type, i) => (
+                                                                <div key={i} className="w-4 h-4 relative">
+                                                                    <Image
+                                                                        src={`/tcg-types/${type}.png`}
+                                                                        alt={type}
+                                                                        fill
+                                                                        className="object-contain"
+                                                                    />
+                                                                </div>
+                                                            ))}
+                                                        </div>
+                                                        <p className="font-semibold absolute left-1/2 -translate-x-1/2 z-0">{attack.name}</p>
+                                                        {attack.damage && (
+                                                            <p className="font-semibold z-10">{attack.damage}</p>
+                                                        )}
                                                     </div>
-                                                    {attack.damage && (
-                                                        <p className="text-muted-foreground">{attack.damage}</p>
+                                                    {attack.description && (
+                                                        <div className="pl-6 border-l-2 border-muted-foreground/20 ml-2">
+                                                            <p className="text-muted-foreground text-center">{attack.description}</p>
+                                                        </div>
                                                     )}
                                                 </div>
                                             ))}

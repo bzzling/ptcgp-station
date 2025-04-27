@@ -77,7 +77,7 @@ export default function Card({ card }: CardProps) {
             name: attack.name,
             damage: attack.damage,
             description: attack.effect,
-            energyType: attack.cost?.[0]
+            cost: attack.cost
         })),
         abilities: detailedCard.abilities?.map(ability => ({
             name: ability.name,

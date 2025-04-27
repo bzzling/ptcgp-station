@@ -61,14 +61,16 @@ export default function CardDetailPopup({ isOpen, onOpenChange, card, isLoading 
                             <DialogTitle className="text-lg">
                                 <div className="flex items-center justify-between">
                                     <p>{card.number} · {card.name}</p>
-                                    <div className="w-6 h-6 relative">
-                                        <Image
-                                            src={`/tcg-types/${card.type}.png`}
-                                            alt={card.type ?? ''}
-                                            fill
-                                            className="object-contain"
-                                        />
-                                    </div>
+                                    {card.type && (
+                                        <div className="w-6 h-6 relative">
+                                            <Image
+                                                src={`/tcg-types/${card.type}.png`}
+                                                alt={card.type}
+                                                fill
+                                                className="object-contain"
+                                            />
+                                        </div>
+                                    )}
                                 </div>
                             </DialogTitle>
                             {card.evolveFrom && (
